@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="BusDrive.vcxproj" Id="b1c5523a-89a1-495a-82f4-ed1266becff5" />
+</Solution>
