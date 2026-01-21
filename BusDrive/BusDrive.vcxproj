@@ -129,14 +129,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="shaders\test.frag" />
+    <None Include="shaders\test.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\callbacks.cpp" />
+    <ClCompile Include="source\FpsCamera.cpp" />
     <ClCompile Include="source\Main.cpp" />
-    <ClCompile Include="source\Util.cpp" />
+    <ClCompile Include="source\setup.cpp" />
+    <ClCompile Include="source\Shader.cpp" />
+    <ClCompile Include="source\globals.cpp" />
+    <ClCompile Include="source\Texture.cpp" />
+    <ClCompile Include="source\util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\callbacks.h" />
+    <ClInclude Include="include\defs.h" />
+    <ClInclude Include="include\FpsCamera.h" />
+    <ClInclude Include="include\globals.h" />
+    <ClInclude Include="include\setup.h" />
+    <ClInclude Include="include\Shader.h" />
     <ClInclude Include="include\stb_image.h" />
-    <ClInclude Include="include\Util.h" />
+    <ClInclude Include="include\Texture.h" />
+    <ClInclude Include="include\util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
