@@ -42,3 +42,24 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void mouse_callback(GLFWwindow* window, int button, int action, int mods) {
 
 }
+
+void mouse_callback(GLFWwindow* window, double xposIn, double yposIn) {
+    float xPos = static_cast<float>(xposIn);
+    float yPos = static_cast<float>(yposIn);
+
+    if (g_first_mouse) {
+        g_last_x = xPos;
+        g_last_y = yPos;
+        g_first_mouse = false;
+    }
+
+    float xOffset = xPos - g_last_x;
+    float yOffset = -(yPos - g_last_y);
+
+    g_last_x = xPos;
+    g_last_y = yPos;
+
+    const float sensitivity = 0.002f;
+
+    g_camera.handleMouseMovement(xOffset, yOffset, sensitivity);
+}

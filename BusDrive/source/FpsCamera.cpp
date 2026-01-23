@@ -20,7 +20,7 @@ FpsCamera::getPitch() const {
 
 void
 FpsCamera::setYaw(float yaw) {
-	float angle = glm::clamp(wrapAngle(yaw), -pi + 0.01f, -0.01f);
+	float angle = glm::clamp(yaw, -pi + 0.01f, -0.01f);
 
 	this->yaw = angle;
 
@@ -29,7 +29,7 @@ FpsCamera::setYaw(float yaw) {
 
 void
 FpsCamera::setPitch(float pitch) {
-	float angle = glm::clamp(wrapAngle(pitch), -pi / 2, pi / 2);
+	float angle = glm::clamp(pitch, -pi / 2, pi / 2);
 
 	this->pitch = angle;
 
@@ -74,4 +74,10 @@ FpsCamera::updateDirection() {
 	direction.z = sin(this->yaw) * cos(this->pitch);
 
 	direction = glm::normalize(direction);
+}
+
+void
+FpsCamera::handleMouseMovement(float xOffset, float yOffset, float sensitivity = 0.005f) {
+	setYaw(yaw + xOffset * sensitivity);
+	setPitch(pitch + yOffset * sensitivity);
 }

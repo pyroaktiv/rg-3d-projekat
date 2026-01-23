@@ -5,6 +5,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <random>
 
 #include <glm/gtc/constants.hpp>
 
@@ -27,4 +28,12 @@ float wrapAngle(float angle) {
         wrapped += 2 * glm::pi<float>();
 
     return wrapped;
+}
+
+unsigned randomNnumber(unsigned n) {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+
+    std::uniform_int_distribution<> dist(0, n);
+    return dist(gen);
 }

@@ -12,3 +12,7 @@ extern const GLFWvidmode* g_monitor_mode;
 extern GLFWwindow* g_window;
 
 extern FpsCamera g_camera;
+
+extern float g_last_x;
+extern float g_last_y;
+extern bool g_first_mouse;

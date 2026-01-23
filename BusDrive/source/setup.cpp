@@ -2,6 +2,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "../include/setup.h"
 #include "../include/defs.h"
+#include "../include/callbacks.h"
 
 void setupGlfw() {
 	glfwInit();
@@ -15,6 +16,7 @@ GLFWwindow* setupScreen() {
 	g_monitor_mode = glfwGetVideoMode(g_monitor);
 
 	g_window = glfwCreateWindow(g_monitor_mode->width, g_monitor_mode->height, "Bus tracker", g_monitor, NULL);
+
 	return g_window;
 }
 
@@ -26,7 +28,14 @@ void setupCallbacks() {
 void setupCamera() {
 	g_camera.setScreenSize(g_monitor_mode->height, g_monitor_mode->width);
 
-	g_camera.pos = glm::vec3(0.0f, 0.0f, 2.0f);
+	g_camera.pos = glm::vec3(5.0f, 0.0f, 5.0f);
 
 	g_camera.setPersp();
+}
+
+void setupMouselook() {
+	g_first_mouse = true;
+
+	glfwSetInputMode(g_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPosCallback(g_window, mouse_callback);
 }

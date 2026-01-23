@@ -59,4 +59,6 @@ public:
 	glm::mat4 getProjectionMatrix() const;
 	void setOrtho();
 	void setPersp();
+
+	void handleMouseMovement(float, float, float);
 };

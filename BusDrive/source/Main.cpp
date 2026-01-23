@@ -31,9 +31,10 @@ int main()
 
     glClearColor(0.8f, 0.5f, 0.0f, 1.0f);
 
-    setupCallbacks();
+    
     setupCamera();
-
+    setupMouselook();
+    setupCallbacks();
 
     //test
 

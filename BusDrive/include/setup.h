@@ -13,3 +13,5 @@ GLFWwindow* setupScreen();
 void setupCallbacks();
 
 void setupCamera();
+
+void setupMouselook();
