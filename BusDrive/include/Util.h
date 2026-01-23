@@ -7,3 +7,4 @@ int endProgram(std::string message);
 
 float wrapAngle(float);
 unsigned randomNumber(unsigned);
+float randomNumber(float, float);

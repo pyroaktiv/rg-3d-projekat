@@ -6,8 +6,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 
-#include "../include/Road.h"
-
 class Bus {
 private:
 	static constexpr float pi{ glm::pi<float>() };
@@ -22,13 +20,9 @@ private:
 	float _steeringAngle{ 0.0f };
 	float _v{ 0.0f };
 
-	const Road& road;
-
 	bool _doorsOpen{ false };
 
 public:
-
-	Bus(const Road&);
 
 	static constexpr float MAX_DECELERATION{ 4.0f };
 	static constexpr float MAX_ACCELERATION{ 2.5f };
@@ -41,13 +35,15 @@ public:
 	static constexpr float REAR_AXLE_TO_BACK{ 3.4f };
 	static constexpr float REAR_AXLE_TO_FRONT{ 9.6f };
 	static constexpr float WIDTH{ 2.5f };
+	static constexpr float FLOOR_HEIGHT{ 1.0f };
+	static constexpr float ROOF_HEIGHT{ 3.5f };
 
 	static constexpr glm::vec3 CAMERA_POS = glm::vec3(-1.0f, 1.0f, 8.6f);
 
 	static constexpr float STEERING_TURNING_CONSTANT{ 0.2f };
-	static constexpr float STEERING_CENTERING_CONSTANT{ 0.02f };
+	static constexpr float STEERING_CENTERING_CONSTANT{ 0.2f };
 	static constexpr float ACCELERATION_CONSTANT{ 0.3f };
-	static constexpr float COASTING_CONSTANT{ 0.5f };
+	static constexpr float COASTING_CONSTANT{ 1.5f };
 
 	const glm::vec3& pos{ _pos };
 	const float& yaw{ _yaw };

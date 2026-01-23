@@ -6,8 +6,6 @@
 #include "../include/util.h"
 #include "../include/globals.h"
 
-Bus::Bus(const Road& road) : road(road){}
-
 void Bus::doStateStep() {
     double currentTime = glfwGetTime();
     float dt = static_cast<float>(currentTime - lastRegisteredTime);
@@ -23,7 +21,7 @@ void Bus::doStateStep() {
         a = -MAX_DECELERATION;
     }
     else {
-        a = -COASTING_CONSTANT * (glm::exp(_v / MAX_VELOCITY) - 1.0f);
+        a = -COASTING_CONSTANT * (glm::exp(_v / MAX_VELOCITY) - 1.0f) - 1.0f;
     }
 
     _v = glm::clamp(_v + (double)a * dt, 0.0, (double)MAX_VELOCITY);
@@ -38,7 +36,15 @@ void Bus::doStateStep() {
     }
 
     else {
-        _steeringAngle -= (_steeringAngle * STEERING_CENTERING_CONSTANT * _v) * dt;
+        float centeringDirection = (_steeringAngle > 0) ? -1.0f : 1.0f;
+        float centeringAmount = MAX_STEERING_SPEED_TURNING * 0.5f * dt;
+
+        if (glm::abs(_steeringAngle) > centeringAmount) {
+            _steeringAngle += centeringDirection * centeringAmount;
+        }
+        else {
+            _steeringAngle = 0.0f;
+        }
     }
 
     _steeringAngle = glm::clamp(_steeringAngle, -MAX_STEERING_ANGLE, MAX_STEERING_ANGLE);
@@ -54,8 +60,11 @@ void Bus::doStateStep() {
     if (isWithinBounds(nextX, nextYaw)) {
         _pos.x = nextX;
         _yaw = nextYaw;
+        g_camera.setYaw(g_camera.getYaw() + deltaYaw);
     }
     _pos.z -= dz;
+
+    g_camera.pos = _pos + CAMERA_POS;
 }
 
 bool
@@ -82,8 +91,8 @@ Bus::isWithinBounds(float testX, float testYaw) const {
 bool
 Bus::isNearStation() const {
     bool isAngleCorrect = _yaw >= -pi / 6 && _yaw <= pi / 6;
-    bool isZOffsetCorrect = (road.localOffset + CAMERA_POS).z >= Road::MIN_STATION_RELATIVE_Z
-        && (road.localOffset + CAMERA_POS).z <= Road::MAX_STATION_RELATIVE_Z;
+    bool isZOffsetCorrect = (g_road.localOffset + CAMERA_POS).z >= Road::MIN_STATION_RELATIVE_Z
+        && (g_road.localOffset + CAMERA_POS).z <= Road::MAX_STATION_RELATIVE_Z;
 
     bool isXCorrect = _pos.x >= Road::EFFECTIVE_ROAD_WIDTH / 4;
 

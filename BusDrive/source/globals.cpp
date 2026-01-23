@@ -9,3 +9,8 @@ FpsCamera g_camera;
 float g_last_x;
 float g_last_y;
 bool g_first_mouse;
+
+
+Bus g_bus;
+Road g_road;
+PassengerBunch g_bunch;

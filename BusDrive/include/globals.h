@@ -6,6 +6,8 @@
 
 #include "FpsCamera.h"
 #include "Shader.h"
+#include "PassengerBunch.h"
+#include "Road.h"
 
 extern GLFWmonitor* g_monitor;
 extern const GLFWvidmode* g_monitor_mode;
@@ -16,3 +18,8 @@ extern FpsCamera g_camera;
 extern float g_last_x;
 extern float g_last_y;
 extern bool g_first_mouse;
+
+
+extern Bus g_bus;
+extern Road g_road;
+extern PassengerBunch g_bunch;

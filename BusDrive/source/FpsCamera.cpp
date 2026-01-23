@@ -20,7 +20,7 @@ FpsCamera::getPitch() const {
 
 void
 FpsCamera::setYaw(float yaw) {
-	float angle = glm::clamp(yaw, -pi + 0.01f, -0.01f);
+	float angle = glm::clamp(yaw, MIN_YAW, MAX_YAW);
 
 	this->yaw = angle;
 
@@ -29,7 +29,7 @@ FpsCamera::setYaw(float yaw) {
 
 void
 FpsCamera::setPitch(float pitch) {
-	float angle = glm::clamp(pitch, -pi / 2, pi / 2);
+	float angle = glm::clamp(pitch, MIN_PITCH, MAX_PITCH);
 
 	this->pitch = angle;
 

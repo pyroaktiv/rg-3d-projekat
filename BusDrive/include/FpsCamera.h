@@ -33,11 +33,11 @@ public:
 	static constexpr float ORTHO_NEAR{ 0.1f };
 	static constexpr float ORTHO_FAR{ 200.0f };
 
-	static constexpr float MIN_YAW{ pi };
-	static constexpr float MAX_YAW{};
+	static constexpr float MIN_YAW{ -pi };
+	static constexpr float MAX_YAW{ pi };
 
-	static constexpr float MIN_PITCH{ -pi / 2 };
-	static constexpr float MAX_PITCH{ pi / 2 };
+	static constexpr float MIN_PITCH{ -pi / 2 + 0.01f };
+	static constexpr float MAX_PITCH{ pi /2 + 0.01f };
 
 	FpsCamera();
 

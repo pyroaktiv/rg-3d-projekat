@@ -30,10 +30,18 @@ float wrapAngle(float angle) {
     return wrapped;
 }
 
-unsigned randomNnumber(unsigned n) {
+unsigned randomNumber(unsigned n) {
     static std::random_device rd;
     static std::mt19937 gen(rd());
 
     std::uniform_int_distribution<> dist(0, n);
+    return dist(gen);
+}
+
+float randomNumber(float x, float y) {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+
+    std::uniform_real_distribution<float> dist(x, y);
     return dist(gen);
 }

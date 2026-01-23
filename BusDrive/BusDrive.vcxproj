@@ -137,6 +137,8 @@
     <ClCompile Include="source\callbacks.cpp" />
     <ClCompile Include="source\FpsCamera.cpp" />
     <ClCompile Include="source\Main.cpp" />
+    <ClCompile Include="source\Passenger.cpp" />
+    <ClCompile Include="source\PassengerBunch.cpp" />
     <ClCompile Include="source\Road.cpp" />
     <ClCompile Include="source\RoadSegment.cpp" />
     <ClCompile Include="source\setup.cpp" />
@@ -144,13 +146,17 @@
     <ClCompile Include="source\globals.cpp" />
     <ClCompile Include="source\Texture.cpp" />
     <ClCompile Include="source\util.cpp" />
+    <ClCompile Include="source\vo_setup.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\BidirSegment.h" />
     <ClInclude Include="include\Bus.h" />
     <ClInclude Include="include\callbacks.h" />
     <ClInclude Include="include\defs.h" />
     <ClInclude Include="include\FpsCamera.h" />
     <ClInclude Include="include\globals.h" />
+    <ClInclude Include="include\Passenger.h" />
+    <ClInclude Include="include\PassengerBunch.h" />
     <ClInclude Include="include\Road.h" />
     <ClInclude Include="include\RoadSegment.h" />
     <ClInclude Include="include\setup.h" />
@@ -158,6 +164,7 @@
     <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="include\Texture.h" />
     <ClInclude Include="include\util.h" />
+    <ClInclude Include="include\vo_setup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
