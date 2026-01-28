@@ -39,3 +39,11 @@ void setupMouselook() {
 	glfwSetInputMode(g_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPosCallback(g_window, mouse_callback);
 }
+
+void setupTextures() {
+	g_tex_road = Texture("assets/textures/asphalt.png", GL_REPEAT, GL_LINEAR);
+}
+
+void setupShaders() {
+	g_shader_basic = Shader("shaders/basic.vert", "shaders/basic.frag");
+}

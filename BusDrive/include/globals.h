@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 
 #include "FpsCamera.h"
+#include "Texture.h"
 #include "Shader.h"
 #include "PassengerBunch.h"
 #include "Road.h"
@@ -23,3 +24,9 @@ extern bool g_first_mouse;
 extern Bus g_bus;
 extern Road g_road;
 extern PassengerBunch g_bunch;
+
+
+extern Texture g_tex_road;
+
+
+extern Shader g_shader_basic;

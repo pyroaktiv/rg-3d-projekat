@@ -14,3 +14,8 @@ bool g_first_mouse;
 Bus g_bus;
 Road g_road;
 PassengerBunch g_bunch;
+
+
+Texture g_tex_road;
+
+Shader g_shader_basic;

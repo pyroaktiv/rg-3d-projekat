@@ -4,6 +4,8 @@
 #include "../include/stb_image.h"
 #include <iostream>
 
+Texture::Texture() {}
+
 Texture::Texture(const char* filePath, GLenum wrapping, GLenum filtering)
 {
     glGenTextures(1, &ID);

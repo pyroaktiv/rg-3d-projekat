@@ -35,12 +35,39 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     case GLFW_KEY_O:
         g_camera.setOrtho();
         break;
+
+    case GLFW_KEY_K:
+        if (g_bus.doorsOpen)
+            g_bunch.boardControl();
+        break;
+
+    case GLFW_KEY_M:
+        if (g_bus.doorsOpen)
+            g_bus.closeDoors();
+        else
+            g_bus.openDoors();
+        break;
     }
 }
 
 
 void mouse_callback(GLFWwindow* window, int button, int action, int mods) {
 
+    if (action != GLFW_PRESS) {
+        return;
+    }
+
+    switch (button) {
+    case GLFW_MOUSE_BUTTON_LEFT:
+        if (g_bus.doorsOpen){}
+            g_bunch.boardOne();
+        break;
+
+    case GLFW_MOUSE_BUTTON_RIGHT:
+        if (g_bus.doorsOpen)
+            g_bunch.disembarkOne();
+        break;
+    }
 }
 
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn) {

@@ -2,12 +2,14 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 
+#include <glm/gtc/matrix_transform.hpp>
+
 #include "../include/Util.h"
 #include "../include/setup.h"
 #include "../include/defs.h"
-#include "../include/Shader.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include "../include/Passenger.h"
+#include "../include/fsm.h"
+#include "../include/vaos.h"
+#include "../include/draw.h"
 
 // Main fajl funkcija sa osnovnim komponentama OpenGL programa
 
@@ -36,6 +38,10 @@ int main()
     setupCamera();
     setupMouselook();
     setupCallbacks();
+    setupVAOs();
+    setupShaders();
+    setupTextures();
+
 
     while (!glfwWindowShouldClose(g_window))
     {
@@ -43,7 +49,9 @@ int main()
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        g_bus.doStateStep();
+        doFSMLoop();
+
+        drawRoad();
 
         glfwSwapBuffers(g_window);
         glfwPollEvents();

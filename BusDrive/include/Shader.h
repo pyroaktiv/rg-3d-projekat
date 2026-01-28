@@ -9,6 +9,8 @@ class Shader
 public:
     unsigned int ID;
 
+    Shader();
+
     // Constructor reads & builds the shader
     Shader(const char* vertexPath, const char* fragmentPath);
 

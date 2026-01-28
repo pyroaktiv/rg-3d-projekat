@@ -15,3 +15,9 @@ void setupCallbacks();
 void setupCamera();
 
 void setupMouselook();
+
+
+
+void setupTextures();
+
+void setupShaders();
