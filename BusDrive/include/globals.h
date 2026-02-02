@@ -30,3 +30,4 @@ extern Texture g_tex_road;
 
 
 extern Shader g_shader_basic;
+extern Shader g_shader_phong;

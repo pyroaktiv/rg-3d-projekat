@@ -59,7 +59,7 @@ void mouse_callback(GLFWwindow* window, int button, int action, int mods) {
 
     switch (button) {
     case GLFW_MOUSE_BUTTON_LEFT:
-        if (g_bus.doorsOpen){}
+        if (g_bus.doorsOpen)
             g_bunch.boardOne();
         break;
 

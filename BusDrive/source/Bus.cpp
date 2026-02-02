@@ -60,11 +60,12 @@ void Bus::doStateStep() {
     if (isWithinBounds(nextX, nextYaw)) {
         _pos.x = nextX;
         _yaw = nextYaw;
-        g_camera.setYaw(g_camera.getYaw() + deltaYaw);
     }
     _pos.z -= dz;
 
-    g_camera.pos = _pos + CAMERA_POS;
+    g_road.updateSegments(_pos.z);
+
+    g_camera.pos = CAMERA_POS;
 }
 
 bool
@@ -91,8 +92,8 @@ Bus::isWithinBounds(float testX, float testYaw) const {
 bool
 Bus::isNearStation() const {
     bool isAngleCorrect = _yaw >= -pi / 6 && _yaw <= pi / 6;
-    bool isZOffsetCorrect = (g_road.localOffset + CAMERA_POS).z >= Road::MIN_STATION_RELATIVE_Z
-        && (g_road.localOffset + CAMERA_POS).z <= Road::MAX_STATION_RELATIVE_Z;
+    bool isZOffsetCorrect = (g_road.localOffset - CAMERA_POS.z) >= Road::MIN_STATION_RELATIVE_Z
+        && (g_road.localOffset - CAMERA_POS.z) <= Road::MAX_STATION_RELATIVE_Z;
 
     bool isXCorrect = _pos.x >= Road::EFFECTIVE_ROAD_WIDTH / 4;
 
@@ -107,9 +108,14 @@ Bus::openDoors() {
     if (_v == 0 && isNearStation()) {
         _doorsOpen = true;
     }
+    if (g_bunch.isControlInside) {
+        g_bunch.disembarkControl();
+    }
 }
 
 void
 Bus::closeDoors() {
-    _doorsOpen = false;
+    if (g_bunch.currentPassenger == nullptr) {
+        _doorsOpen = false;
+    }
 }

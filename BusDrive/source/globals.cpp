@@ -19,3 +19,4 @@ PassengerBunch g_bunch;
 Texture g_tex_road;
 
 Shader g_shader_basic;
+Shader g_shader_phong;

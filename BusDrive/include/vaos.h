@@ -3,3 +3,4 @@
 void setupVAOs();
 
 void setupUnitCubeVAO();
+void setupQuadVAO();

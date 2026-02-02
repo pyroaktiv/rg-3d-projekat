@@ -64,7 +64,7 @@ FpsCamera::setOrtho() {
 
 void
 FpsCamera::setPersp() {
-	projection = glm::perspective(PERSP_FOV, screenWidth / screenHeight, PERSP_NEAR, PERSP_FAR);
+	projection = glm::perspective(PERSP_FOV, screenHeight / screenWidth, PERSP_NEAR, PERSP_FAR);
 }
 
 void

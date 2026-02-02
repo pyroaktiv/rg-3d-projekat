@@ -16,3 +16,8 @@ Road::updateSegments(float busZ) {
 		segments[i].updateZ(relativeZ);
 	}
 }
+
+float
+Road::getSegmentZ(int i) {
+	return segments[i].getPosition().z;
+}

@@ -20,7 +20,7 @@ Passenger::doStateStep() {
 
 		int seg = 0;
 
-		while (seg < 3 && sharedPath[seg].precedingTotal < dist)
+		while (seg < 3 && sharedPath[seg + 1].precedingTotal < dist)
 			seg++;
 
 		if (seg == 3 && _orientation != DIR_POS_Z)
@@ -41,7 +41,7 @@ Passenger::doStateStep() {
 
 		int seg = 3;
 
-		while (seg > 0 && sharedPath[seg].reversePrecedingTotal < dist)
+		while (seg > 0 && sharedPath[seg - 1].reversePrecedingTotal < dist)
 			seg--;
 
 		if (seg == 2 && _orientation != DIR_POS_X)

@@ -131,6 +131,8 @@
     <None Include="packages.config" />
     <None Include="shaders\basic.frag" />
     <None Include="shaders\basic.vert" />
+    <None Include="shaders\phong.frag" />
+    <None Include="shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Bus.cpp" />
@@ -138,7 +140,10 @@
     <ClCompile Include="source\draw.cpp" />
     <ClCompile Include="source\FpsCamera.cpp" />
     <ClCompile Include="source\Main.cpp" />
+    <ClCompile Include="source\materials.cpp" />
+    <ClCompile Include="source\matrices.cpp" />
     <ClCompile Include="source\matrices\bus_matrices.cpp" />
+    <ClCompile Include="source\matrices\road_matrices.cpp" />
     <ClCompile Include="source\Passenger.cpp" />
     <ClCompile Include="source\PassengerBunch.cpp" />
     <ClCompile Include="source\Road.cpp" />
@@ -149,7 +154,7 @@
     <ClCompile Include="source\Texture.cpp" />
     <ClCompile Include="source\util.cpp" />
     <ClCompile Include="source\vaos.cpp" />
-    <ClCompile Include="source\vertices\road.cpp" />
+    <ClCompile Include="source\vertices\quad.cpp" />
     <ClCompile Include="source\vertices\unit_cube.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +166,10 @@
     <ClInclude Include="include\FpsCamera.h" />
     <ClInclude Include="include\fsm.h" />
     <ClInclude Include="include\globals.h" />
+    <ClInclude Include="include\materials.h" />
+    <ClInclude Include="include\matrices.h" />
     <ClInclude Include="include\matrices\bus_matrices.h" />
+    <ClInclude Include="include\matrices\road_matrices.h" />
     <ClInclude Include="include\Passenger.h" />
     <ClInclude Include="include\PassengerBunch.h" />
     <ClInclude Include="include\Road.h" />
@@ -172,9 +180,9 @@
     <ClInclude Include="include\Texture.h" />
     <ClInclude Include="include\util.h" />
     <ClInclude Include="include\vaos.h" />
-    <ClInclude Include="include\vertices\road.h" />
-    <ClInclude Include="include\vertices\unit_cube.h" />
+    <ClInclude Include="include\vertices\quad.h" />
     <ClCompile Include="source\fsm.cpp" />
+    <ClInclude Include="include\vertices\unit_cube.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\asphalt.png" />

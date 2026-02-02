@@ -46,4 +46,5 @@ void setupTextures() {
 
 void setupShaders() {
 	g_shader_basic = Shader("shaders/basic.vert", "shaders/basic.frag");
+	g_shader_phong = Shader("shaders/phong.vert", "shaders/phong.frag");
 }

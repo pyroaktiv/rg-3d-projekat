@@ -22,7 +22,7 @@ private:
 
 public:
 
-	static constexpr float PERSP_FOV{ glm::radians(90.0f) };
+	static constexpr float PERSP_FOV{ glm::radians(60.0f) };
 	static constexpr float PERSP_NEAR{ 0.1f };
 	static constexpr float PERSP_FAR{ 200.0f };
 
@@ -33,8 +33,8 @@ public:
 	static constexpr float ORTHO_NEAR{ 0.1f };
 	static constexpr float ORTHO_FAR{ 200.0f };
 
-	static constexpr float MIN_YAW{ -pi };
-	static constexpr float MAX_YAW{ pi };
+	static constexpr float MIN_YAW{ -pi + 0.01f };
+	static constexpr float MAX_YAW{ 0.01f };
 
 	static constexpr float MIN_PITCH{ -pi / 2 + 0.01f };
 	static constexpr float MAX_PITCH{ pi /2 + 0.01f };

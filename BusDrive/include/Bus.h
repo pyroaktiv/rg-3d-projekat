@@ -35,10 +35,10 @@ public:
 	static constexpr float REAR_AXLE_TO_BACK{ 3.4f };
 	static constexpr float REAR_AXLE_TO_FRONT{ 9.6f };
 	static constexpr float WIDTH{ 2.5f };
-	static constexpr float FLOOR_HEIGHT{ 1.0f };
-	static constexpr float ROOF_HEIGHT{ 3.5f };
+	static constexpr float FLOOR_HEIGHT{ 0.35f };
+	static constexpr float ROOF_HEIGHT{ 3.0f };
 
-	static constexpr glm::vec3 CAMERA_POS = glm::vec3(-1.0f, 1.0f, 8.6f);
+	static constexpr glm::vec3 CAMERA_POS = glm::vec3(-0.7f, 1.0f + FLOOR_HEIGHT, -8.6f);
 
 	static constexpr float STEERING_TURNING_CONSTANT{ 0.2f };
 	static constexpr float STEERING_CENTERING_CONSTANT{ 0.2f };

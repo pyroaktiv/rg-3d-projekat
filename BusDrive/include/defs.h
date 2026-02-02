@@ -15,3 +15,4 @@
 #define PASG_BOARDING		1
 #define PASG_DISEMBARKING	2
 #define PASG_BOARDED		3
+//=====

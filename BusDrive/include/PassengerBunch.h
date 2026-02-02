@@ -30,6 +30,8 @@ public:
 		for (std::shared_ptr<Passenger>& p : passengers) {
 			p = std::make_shared<Passenger>();
 		}
+
+		_control = std::make_shared<Passenger>();
 	}
 
 	const bool& isControlInside{ _isControlInside };

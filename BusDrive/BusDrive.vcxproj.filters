@@ -18,6 +18,8 @@
     <None Include="packages.config" />
     <None Include="shaders\basic.vert" />
     <None Include="shaders\basic.frag" />
+    <None Include="shaders\phong.vert" />
+    <None Include="shaders\phong.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\util.cpp">
@@ -71,10 +73,19 @@
     <ClCompile Include="source\draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\vertices\road.cpp">
+    <ClCompile Include="source\vaos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\vaos.cpp">
+    <ClCompile Include="source\matrices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\vertices\quad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\matrices\road_matrices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\materials.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -130,16 +141,25 @@
     <ClInclude Include="include\matrices\bus_matrices.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vertices\unit_cube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\draw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vertices\road.h">
+    <ClInclude Include="include\vaos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vaos.h">
+    <ClInclude Include="include\matrices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\quad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\unit_cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\matrices\road_matrices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\materials.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

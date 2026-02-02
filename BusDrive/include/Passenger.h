@@ -13,14 +13,14 @@ private:
 
     static constexpr float MIN_SCALE_Y{ 0.5f };
     static constexpr float MAX_SCALE_Y{ 1.4f };
-    static constexpr float V{ 2.0f };
+    static constexpr float V{ 0.003f };
 
     static constexpr std::array<glm::vec3, 5> sharedPathNodes = { {
         {Bus::WIDTH / 2 + 2.0f, 0.0f, -(Bus::REAR_AXLE_TO_FRONT - 1.0f)},
         {Bus::WIDTH / 2 + 0.4f, 0.0f, -(Bus::REAR_AXLE_TO_FRONT - 1.0f)},
         {Bus::WIDTH / 2, Bus::FLOOR_HEIGHT, -(Bus::REAR_AXLE_TO_FRONT - 1.0f)},
         {0.0f, Bus::FLOOR_HEIGHT, -(Bus::REAR_AXLE_TO_FRONT - 1.0f)},
-        {0.0f, Bus::FLOOR_HEIGHT, -(Bus::REAR_AXLE_TO_FRONT / 2.0f)}
+        {0.0f, Bus::FLOOR_HEIGHT, -(Bus::REAR_AXLE_TO_FRONT - 3.0f)}
     } };
 
     inline static std::array<BidirSegment, 4> buildSharedPath(const std::array<glm::vec3, 5>& points) {

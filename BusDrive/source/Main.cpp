@@ -9,6 +9,7 @@
 #include "../include/defs.h"
 #include "../include/fsm.h"
 #include "../include/vaos.h"
+#include "../include/matrices.h"
 #include "../include/draw.h"
 
 // Main fajl funkcija sa osnovnim komponentama OpenGL programa
@@ -39,6 +40,7 @@ int main()
     setupMouselook();
     setupCallbacks();
     setupVAOs();
+    setupMatrices();
     setupShaders();
     setupTextures();
 
@@ -52,6 +54,8 @@ int main()
         doFSMLoop();
 
         drawRoad();
+        drawBus();
+        drawPassenger();
 
         glfwSwapBuffers(g_window);
         glfwPollEvents();

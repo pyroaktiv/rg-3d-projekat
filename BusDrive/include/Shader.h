@@ -4,6 +4,28 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
+
+struct Light {
+    glm::vec3 pos;
+    glm::vec3 kA;
+    glm::vec3 kD;
+    glm::vec3 kS;
+};
+
+struct Material {
+    glm::vec3 kA;
+    glm::vec3 kD;
+    glm::vec3 kS;
+    float shine;
+    float alpha;
+};
+
+struct TexScale {
+    float scaleS;
+    float scaleT;
+};
+
+
 class Shader
 {
 public:
@@ -28,6 +50,10 @@ public:
 
     void setMat3(const std::string& name, const glm::mat3& mat) const;
     void setMat4(const std::string& name, const glm::mat4& mat) const;
+
+    void setLight(const std::string& name, const Light& light) const;
+    void setMaterial(const std::string& name, const Material& material) const;
+    void setTexScale(const std::string& name, const TexScale& scale) const;
 
     int getUniformLocation(const std::string& name) const;
 

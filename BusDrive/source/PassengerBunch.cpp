@@ -2,7 +2,7 @@
 
 void
 PassengerBunch::boardOne() {
-	if (_totalPassengers < MAX_PASSENGERS && currentPassenger ==  nullptr) {
+	if (_totalPassengers < MAX_PASSENGERS && _currentPassenger ==  nullptr) {
 		_totalPassengers++;
 		_currentPassenger = passengers.at(nextPassenger);
 		nextPassenger++;
@@ -15,7 +15,7 @@ PassengerBunch::disembarkOne() {
 
 	int lowerLimit = _isControlInside ? 1 : 0;
 
-	if (_totalPassengers > lowerLimit && currentPassenger == nullptr) {
+	if (_totalPassengers > lowerLimit && _currentPassenger == nullptr) {
 		_totalPassengers--;
 		_currentPassenger = passengers.at(nextPassenger - 1);
 		nextPassenger--;
@@ -25,7 +25,7 @@ PassengerBunch::disembarkOne() {
 
 void
 PassengerBunch::boardControl() {
-	if (!_isControlInside && _totalPassengers < MAX_PASSENGERS && currentPassenger == nullptr) {
+	if (!_isControlInside && _totalPassengers < MAX_PASSENGERS && _currentPassenger == nullptr) {
 		_totalPassengers++;
 		_isControlInside = true;
 		_currentPassenger = _control;
@@ -35,7 +35,7 @@ PassengerBunch::boardControl() {
 
 void
 PassengerBunch::disembarkControl() {
-	if (_isControlInside && _totalPassengers > 0 && currentPassenger == nullptr) {
+	if (_isControlInside && _totalPassengers > 0 && _currentPassenger == nullptr) {
 		_totalPassengers--;
 		_isControlInside = false;
 		_totalFines += randomNumber(totalPassengers);

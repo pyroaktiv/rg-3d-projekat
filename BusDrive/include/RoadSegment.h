@@ -8,7 +8,7 @@ private:
 public:
 	static constexpr float LENGTH{ 300.0f };
 
-	const glm::vec3& position{ _position };
-
 	void updateZ(float);
+
+	glm::vec3 getPosition();
 };
