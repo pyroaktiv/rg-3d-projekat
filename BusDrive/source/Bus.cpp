@@ -115,7 +115,7 @@ Bus::openDoors() {
 
 void
 Bus::closeDoors() {
-    if (g_bunch.currentPassenger == nullptr) {
+    if (g_bunch.boardingPassengers.empty() == true || g_bunch.disembarkingPassengers.empty() == true) {
         _doorsOpen = false;
     }
 }

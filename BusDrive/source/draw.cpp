@@ -59,20 +59,29 @@ void drawBus() {
 	}
 }
 
-void drawPassenger() {
-	if (g_bunch.currentPassenger != nullptr) {
+void drawPassengers() {
+	struct Light light = {
+	Bus::CAMERA_POS,
+	glm::vec3(0.7f, 0.7f, 0.7f),
+	glm::vec3(0.7f, 0.7f, 0.7f),
+	glm::vec3(0.5f, 0.5f, 0.5f),
+	};
 
-		struct Light light = {
-		Bus::CAMERA_POS,
-		glm::vec3(0.7f, 0.7f, 0.7f),
-		glm::vec3(0.7f, 0.7f, 0.7f),
-		glm::vec3(0.5f, 0.5f, 0.5f),
-		};
-
+	for (auto p : g_bunch.boardingPassengers) {
 		glm::mat4 model = glm::mat4(1.0f);
 
-		model = glm::translate(model, g_bunch.currentPassenger->pos);
-		model = glm::scale(model, glm::vec3(0.5f, g_bunch.currentPassenger->scaleY, 0.5f));
+		model = glm::translate(model, p->pos);
+		model = glm::scale(model, glm::vec3(0.5f, p->scaleY, 0.5f));
+		model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
+
+		drawPlainCube(model, busStationMaterial, light, Bus::CAMERA_POS);
+	}
+
+	for (auto p : g_bunch.disembarkingPassengers) {
+		glm::mat4 model = glm::mat4(1.0f);
+
+		model = glm::translate(model, p->pos);
+		model = glm::scale(model, glm::vec3(0.5f, p->scaleY, 0.5f));
 		model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
 
 		drawPlainCube(model, busStationMaterial, light, Bus::CAMERA_POS);

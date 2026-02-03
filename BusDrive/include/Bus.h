@@ -24,9 +24,10 @@ private:
 
 public:
 
-	static constexpr float MAX_DECELERATION{ 4.0f };
+	static constexpr float MAX_DECELERATION{ 8.0f };
 	static constexpr float MAX_ACCELERATION{ 2.5f };
 	static constexpr float MAX_VELOCITY{ 13.89f };
+	static constexpr float MAX_REVERSE_VELOCITY{ 1.0f };
 	static constexpr float MAX_STEERING_SPEED_TURNING{ 3 * pi / 2 };
 
 	static constexpr float MAX_STEERING_ANGLE{ pi / 4 };

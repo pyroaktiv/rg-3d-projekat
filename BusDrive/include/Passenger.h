@@ -13,7 +13,7 @@ private:
 
     static constexpr float MIN_SCALE_Y{ 0.5f };
     static constexpr float MAX_SCALE_Y{ 1.4f };
-    static constexpr float V{ 0.003f };
+    static constexpr float V{ 0.005f };
 
     static constexpr std::array<glm::vec3, 5> sharedPathNodes = { {
         {Bus::WIDTH / 2 + 2.0f, 0.0f, -(Bus::REAR_AXLE_TO_FRONT - 1.0f)},

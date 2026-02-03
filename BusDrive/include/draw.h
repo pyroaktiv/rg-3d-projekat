@@ -8,7 +8,7 @@
 
 void drawRoad();
 void drawBus();
-void drawPassenger();
+void drawPassengers();
 
 
 void drawPlainCube(const glm::mat4&, const Material&, const Light&, glm::vec3);

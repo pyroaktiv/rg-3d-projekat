@@ -2,11 +2,11 @@
 
 void
 PassengerBunch::boardOne() {
-	if (_totalPassengers < MAX_PASSENGERS && _currentPassenger ==  nullptr) {
+	if (_totalPassengers < MAX_PASSENGERS && disembarkingPassengers.empty() == true && _isControlInside == false) {
 		_totalPassengers++;
-		_currentPassenger = passengers.at(nextPassenger);
+		boardingPassengers.push_back(passengers.at(nextPassenger));
 		nextPassenger++;
-		_currentPassenger->startBoarding();
+		boardingPassengers.back()->startBoarding();
 	}
 }
 
@@ -15,39 +15,44 @@ PassengerBunch::disembarkOne() {
 
 	int lowerLimit = _isControlInside ? 1 : 0;
 
-	if (_totalPassengers > lowerLimit && _currentPassenger == nullptr) {
+	if (_totalPassengers > lowerLimit && boardingPassengers.empty() == true && _isControlInside == false) {
 		_totalPassengers--;
-		_currentPassenger = passengers.at(nextPassenger - 1);
+		disembarkingPassengers.push_back(passengers.at(nextPassenger - 1));
 		nextPassenger--;
-		_currentPassenger->startDisembarking();
+		disembarkingPassengers.back()->startDisembarking();
 	}
 }
 
 void
 PassengerBunch::boardControl() {
-	if (!_isControlInside && _totalPassengers < MAX_PASSENGERS && _currentPassenger == nullptr) {
+	if (!_isControlInside && _totalPassengers < MAX_PASSENGERS && disembarkingPassengers.empty() == true) {
 		_totalPassengers++;
 		_isControlInside = true;
-		_currentPassenger = _control;
-		_currentPassenger->startBoarding();
+		boardingPassengers.push_back(_control);
+		boardingPassengers.back()->startBoarding();
 	}
 }
 
 void
 PassengerBunch::disembarkControl() {
-	if (_isControlInside && _totalPassengers > 0 && _currentPassenger == nullptr) {
+	if (_isControlInside && _totalPassengers > 0 && boardingPassengers.empty() == true) {
 		_totalPassengers--;
 		_isControlInside = false;
 		_totalFines += randomNumber(totalPassengers);
-		_currentPassenger = _control;
-		_currentPassenger->startDisembarking();
+		disembarkingPassengers.push_back(_control);
+		disembarkingPassengers.back()->startDisembarking();
 	}
 }
 
 void PassengerBunch::pollMotionFinish() {
-	if (_currentPassenger != nullptr) {
-		if (_currentPassenger->state == PASG_BOARDED || _currentPassenger->state == PASG_UNBOARDED) {
-			_currentPassenger = nullptr;
+	if (boardingPassengers.empty() == false) {
+		if (boardingPassengers.front()->state == PASG_BOARDED) {
+			boardingPassengers.pop_front();
+		}
+	}
+	if (disembarkingPassengers.empty() == false) {
+		if (disembarkingPassengers.front()->state == PASG_UNBOARDED) {
+			disembarkingPassengers.pop_front();
 		}
 	}
 }

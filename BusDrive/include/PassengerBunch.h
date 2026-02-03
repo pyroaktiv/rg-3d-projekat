@@ -2,12 +2,13 @@
 
 #include <array>
 #include <memory>
+#include <deque>
 
 #include "Passenger.h"
 
 class PassengerBunch {
 private:
-	static constexpr int MAX_PASSENGERS{ 10 };
+	static constexpr int MAX_PASSENGERS{ 50 };
 
 	std::array<std::shared_ptr<Passenger>, MAX_PASSENGERS> passengers;
 
@@ -20,16 +21,18 @@ private:
 	int _totalPassengers{ 0 };
 	int _totalFines{ 0 };
 
-	std::shared_ptr<Passenger> _currentPassenger{ nullptr };
-
 public:
 
-	const std::shared_ptr<Passenger>& currentPassenger { _currentPassenger };
+	std::deque<std::shared_ptr<Passenger>> boardingPassengers;
+	std::deque<std::shared_ptr<Passenger>> disembarkingPassengers;
 
 	PassengerBunch() {
 		for (std::shared_ptr<Passenger>& p : passengers) {
 			p = std::make_shared<Passenger>();
 		}
+
+		boardingPassengers = {};
+		disembarkingPassengers = {};
 
 		_control = std::make_shared<Passenger>();
 	}

@@ -3,8 +3,16 @@
 
 void doFSMLoop() {
 	g_bus.doStateStep();
-	if (g_bunch.currentPassenger != nullptr)
-		g_bunch.currentPassenger->doStateStep();
+	if (g_bunch.boardingPassengers.empty() == false) {
+		for (auto p : g_bunch.boardingPassengers) {
+			p->doStateStep();
+		}
+	}
+	if (g_bunch.disembarkingPassengers.empty() == false) {
+		for (auto p : g_bunch.disembarkingPassengers) {
+			p->doStateStep();
+		}
+	}
 
 	g_bunch.pollMotionFinish();
 
