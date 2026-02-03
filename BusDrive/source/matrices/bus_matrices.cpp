@@ -18,3 +18,5 @@ glm::mat4 M_bus_passenger_side_top_panel;
 glm::mat4 M_bus_dashboard;
 
 glm::mat4 M_bus_door;
+glm::mat4 M_bus_windscreen;
+glm::mat4 M_bus_window;

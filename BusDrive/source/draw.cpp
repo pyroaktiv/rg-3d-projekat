@@ -6,6 +6,7 @@
 #include "../include/globals.h"
 #include "../include/matrices/bus_matrices.h"
 #include "../include/matrices/road_matrices.h"
+#include "../include/matrices/control_board_matrices.h"
 #include "../include/materials.h"
 
 void drawRoad() {
@@ -57,6 +58,9 @@ void drawBus() {
 	if (g_bus.doorsOpen == false) {
 		drawPlainCube(model * M_bus_door, busDoorMaterial, light, Bus::CAMERA_POS);
 	}
+
+	drawPlainQuad(model * M_bus_windscreen, busGlassMaterial, light, Bus::CAMERA_POS);
+	drawPlainQuad(model * M_bus_window, busGlassMaterial, light, Bus::CAMERA_POS);
 }
 
 void drawPassengers() {
@@ -85,6 +89,34 @@ void drawPassengers() {
 		model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
 
 		drawPlainCube(model, busStationMaterial, light, Bus::CAMERA_POS);
+	}
+}
+
+
+void drawControlBoard() {
+	struct Light light = {
+	Bus::CAMERA_POS,
+	glm::vec3(0.7f, 0.7f, 0.7f),
+	glm::vec3(0.7f, 0.7f, 0.7f),
+	glm::vec3(0.5f, 0.5f, 0.5f),
+	};
+
+	drawTexturedQuad(m_control_board_panel, roadMaterial, light, g_tex_panel, TexScale{1.0f, 1.0f}, Bus::CAMERA_POS);
+	drawTexturedQuad(m_control_board_passenger_tens, roadMaterial, light, numbers[g_bunch.totalPassengers / 10], TexScale{1.0f, 1.0f}, Bus::CAMERA_POS);
+	drawTexturedQuad(m_control_board_passenger_ones, roadMaterial, light, numbers[g_bunch.totalPassengers % 10], TexScale{1.0f, 1.0f}, Bus::CAMERA_POS);
+
+	drawTexturedQuad(m_control_board_fines_tens, roadMaterial, light, numbers[(g_bunch.totalFines % 100) / 10], TexScale{ 1.0f, 1.0f }, Bus::CAMERA_POS);
+	drawTexturedQuad(m_control_board_fines_ones, roadMaterial, light, numbers[g_bunch.totalFines % 10], TexScale{ 1.0f, 1.0f }, Bus::CAMERA_POS);
+
+	if (g_bunch.isControlInside) {
+		drawTexturedQuad(m_control_board_control, roadMaterial, light, g_tex_control, TexScale{ 1.0f, 1.0f }, Bus::CAMERA_POS);
+	}
+	
+	if (g_bus.doorsOpen) {
+		drawTexturedQuad(m_control_board_door, roadMaterial, light, g_tex_door_open, TexScale{ 1.0f, 1.0f }, Bus::CAMERA_POS);
+	}
+	else {
+		drawTexturedQuad(m_control_board_door, roadMaterial, light, g_tex_door_closed, TexScale{ 1.0f, 1.0f }, Bus::CAMERA_POS);
 	}
 }
 

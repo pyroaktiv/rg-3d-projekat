@@ -65,3 +65,11 @@ Material busDoorMaterial = {
 	10.0f,
 	0.7f
 };
+
+Material busGlassMaterial = {
+	glm::vec3(0.01f, 0.01f, 0.01f),
+	glm::vec3(0.01f, 0.01f, 0.01f),
+	glm::vec3(0.1f, 0.1f, 0.1f),
+	10.0f,
+	0.3f
+};

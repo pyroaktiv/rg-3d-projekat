@@ -27,6 +27,12 @@ extern PassengerBunch g_bunch;
 
 
 extern Texture g_tex_road;
+extern Texture g_tex_panel;
+extern Texture g_tex_door_open;
+extern Texture g_tex_door_closed;
+extern Texture g_tex_control;
+
+extern std::vector<Texture> numbers;
 
 
 extern Shader g_shader_basic;

@@ -17,6 +17,12 @@ PassengerBunch g_bunch;
 
 
 Texture g_tex_road;
+Texture g_tex_panel;
+Texture g_tex_door_open;
+Texture g_tex_door_closed;
+Texture g_tex_control;
+
+std::vector<Texture> numbers;
 
 Shader g_shader_basic;
 Shader g_shader_phong;

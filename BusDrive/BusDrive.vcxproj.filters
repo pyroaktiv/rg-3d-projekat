@@ -88,6 +88,9 @@
     <ClCompile Include="source\materials.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\matrices\control_board_matrices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\util.h">
@@ -162,12 +165,66 @@
     <ClInclude Include="include\materials.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\matrices\control_board_matrices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\road.jpg">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\textures\asphalt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\9.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\dogtags.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\doors-closed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\doors-open.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\HUD.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\man.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\officer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\x.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

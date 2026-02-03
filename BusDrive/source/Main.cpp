@@ -56,6 +56,7 @@ int main()
         drawRoad();
         drawBus();
         drawPassengers();
+        drawControlBoard();
 
         glfwSwapBuffers(g_window);
         glfwPollEvents();

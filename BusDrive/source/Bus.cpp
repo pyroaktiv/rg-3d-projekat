@@ -107,15 +107,15 @@ void
 Bus::openDoors() {
     if (_v == 0 && isNearStation()) {
         _doorsOpen = true;
-    }
-    if (g_bunch.isControlInside) {
-        g_bunch.disembarkControl();
+        if (g_bunch.isControlInside) {
+            g_bunch.disembarkControl();
+        }
     }
 }
 
 void
 Bus::closeDoors() {
-    if (g_bunch.boardingPassengers.empty() == true || g_bunch.disembarkingPassengers.empty() == true) {
+    if (g_bunch.boardingPassengers.empty() == true && g_bunch.disembarkingPassengers.empty() == true) {
         _doorsOpen = false;
     }
 }

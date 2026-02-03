@@ -13,3 +13,4 @@ extern Material busRoofMaterial;
 extern Material busDashboardMaterial;
 
 extern Material busDoorMaterial;
+extern Material busGlassMaterial;

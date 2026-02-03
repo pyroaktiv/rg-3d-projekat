@@ -143,6 +143,7 @@
     <ClCompile Include="source\materials.cpp" />
     <ClCompile Include="source\matrices.cpp" />
     <ClCompile Include="source\matrices\bus_matrices.cpp" />
+    <ClCompile Include="source\matrices\control_board_matrices.cpp" />
     <ClCompile Include="source\matrices\road_matrices.cpp" />
     <ClCompile Include="source\Passenger.cpp" />
     <ClCompile Include="source\PassengerBunch.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="include\materials.h" />
     <ClInclude Include="include\matrices.h" />
     <ClInclude Include="include\matrices\bus_matrices.h" />
+    <ClInclude Include="include\matrices\control_board_matrices.h" />
     <ClInclude Include="include\matrices\road_matrices.h" />
     <ClInclude Include="include\Passenger.h" />
     <ClInclude Include="include\PassengerBunch.h" />
@@ -185,8 +187,25 @@
     <ClInclude Include="include\vertices\unit_cube.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\textures\0.png" />
+    <Image Include="assets\textures\1.png" />
+    <Image Include="assets\textures\2.png" />
+    <Image Include="assets\textures\3.png" />
+    <Image Include="assets\textures\4.png" />
+    <Image Include="assets\textures\5.png" />
+    <Image Include="assets\textures\6.png" />
+    <Image Include="assets\textures\7.png" />
+    <Image Include="assets\textures\8.png" />
+    <Image Include="assets\textures\9.png" />
     <Image Include="assets\textures\asphalt.png" />
+    <Image Include="assets\textures\dogtags.png" />
+    <Image Include="assets\textures\doors-closed.png" />
+    <Image Include="assets\textures\doors-open.png" />
+    <Image Include="assets\textures\HUD.png" />
+    <Image Include="assets\textures\man.png" />
+    <Image Include="assets\textures\officer.png" />
     <Image Include="assets\textures\road.jpg" />
+    <Image Include="assets\textures\x.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

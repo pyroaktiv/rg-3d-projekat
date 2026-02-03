@@ -18,3 +18,5 @@ extern glm::mat4 M_bus_passenger_side_top_panel;
 extern glm::mat4 M_bus_dashboard;
 
 extern glm::mat4 M_bus_door;
+extern glm::mat4 M_bus_windscreen;
+extern glm::mat4 M_bus_window;

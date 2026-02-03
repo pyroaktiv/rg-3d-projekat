@@ -42,6 +42,23 @@ void setupMouselook() {
 
 void setupTextures() {
 	g_tex_road = Texture("assets/textures/asphalt.png", GL_REPEAT, GL_LINEAR);
+	g_tex_panel = Texture("assets/textures/HUD.png", GL_REPEAT, GL_LINEAR);
+	g_tex_door_closed = Texture("assets/textures/doors-closed.png", GL_REPEAT, GL_LINEAR);
+	g_tex_door_open = Texture("assets/textures/doors-open.png", GL_REPEAT, GL_LINEAR);
+	g_tex_control = Texture("assets/textures/officer.png");
+
+	numbers = {
+		Texture("assets/textures/0.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/1.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/2.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/3.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/4.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/5.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/6.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/7.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/8.png", GL_REPEAT, GL_LINEAR),
+		Texture("assets/textures/9.png", GL_REPEAT, GL_LINEAR)
+	};
 }
 
 void setupShaders() {
