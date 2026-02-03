@@ -10,7 +10,8 @@ void drawRoad();
 void drawBus();
 void drawPassengers();
 void drawControlBoard();
-
+void drawSteeringWheel();
+void drawDogtags();
 
 void drawPlainCube(const glm::mat4&, const Material&, const Light&, glm::vec3);
 void drawTexturedCube(const glm::mat4&, const Material&, const Light&, const Texture&, const TexScale&, glm::vec3);

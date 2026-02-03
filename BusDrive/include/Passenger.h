@@ -7,13 +7,14 @@
 #include "BidirSegment.h"
 #include "Bus.h"
 #include "util.h"
+#include "Shader.h"
 
 class Passenger {
 private:
 
-    static constexpr float MIN_SCALE_Y{ 0.5f };
-    static constexpr float MAX_SCALE_Y{ 1.4f };
-    static constexpr float V{ 0.005f };
+    static constexpr float MIN_SCALE_Y{ 0.9f };
+    static constexpr float MAX_SCALE_Y{ 1.1f };
+    static constexpr float V{ 0.006f };
 
     static constexpr std::array<glm::vec3, 5> sharedPathNodes = { {
         {Bus::WIDTH / 2 + 2.0f, 0.0f, -(Bus::REAR_AXLE_TO_FRONT - 1.0f)},
@@ -68,6 +69,8 @@ private:
 public:
 
     float scaleY;
+
+    Material material;
 
     const int& orientation{ _orientation };
     const int& state{ _state };

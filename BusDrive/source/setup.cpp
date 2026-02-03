@@ -46,6 +46,8 @@ void setupTextures() {
 	g_tex_door_closed = Texture("assets/textures/doors-closed.png", GL_REPEAT, GL_LINEAR);
 	g_tex_door_open = Texture("assets/textures/doors-open.png", GL_REPEAT, GL_LINEAR);
 	g_tex_control = Texture("assets/textures/officer.png");
+	g_tex_steering_wheel = Texture("assets/models/Isuzu NMR.png");
+	g_tex_dogtags = Texture("assets/textures/dogtags.png");
 
 	numbers = {
 		Texture("assets/textures/0.png", GL_REPEAT, GL_LINEAR),
@@ -64,4 +66,11 @@ void setupTextures() {
 void setupShaders() {
 	g_shader_basic = Shader("shaders/basic.vert", "shaders/basic.frag");
 	g_shader_phong = Shader("shaders/phong.vert", "shaders/phong.frag");
+}
+
+
+void setupModels() {
+	g_model_passenger = Model("assets/models/BodyMesh.obj");
+	g_model_control = Model("assets/models/Control.obj");
+	g_model_steering_wheel = Model("assets/models/Isuzu NMR Steering Wheels.obj");
 }

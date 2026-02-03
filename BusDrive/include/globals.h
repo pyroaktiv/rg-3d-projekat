@@ -9,6 +9,7 @@
 #include "Shader.h"
 #include "PassengerBunch.h"
 #include "Road.h"
+#include "Model.h"
 
 extern GLFWmonitor* g_monitor;
 extern const GLFWvidmode* g_monitor_mode;
@@ -31,9 +32,15 @@ extern Texture g_tex_panel;
 extern Texture g_tex_door_open;
 extern Texture g_tex_door_closed;
 extern Texture g_tex_control;
+extern Texture g_tex_steering_wheel;
+extern Texture g_tex_dogtags;
 
 extern std::vector<Texture> numbers;
 
-
 extern Shader g_shader_basic;
 extern Shader g_shader_phong;
+
+extern Model g_model_passenger;
+extern Model g_model_control;
+
+extern Model g_model_steering_wheel;

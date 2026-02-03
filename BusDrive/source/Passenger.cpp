@@ -1,4 +1,5 @@
 #include "../include/Passenger.h"
+#include "../include/util.h"
 
 void
 Passenger::doStateStep() {
@@ -58,6 +59,13 @@ void
 Passenger::startBoarding() {
 	if (_state == PASG_UNBOARDED) {
 		scaleY = randomNumber(MIN_SCALE_Y, MAX_SCALE_Y);
+		material = Material{
+			glm::vec3(randomNumber(0.0f, 0.5f), randomNumber(0.0f, 0.5f), randomNumber(0.0f, 0.5f)),
+			glm::vec3(randomNumber(0.0f, 0.5f), randomNumber(0.0f, 0.5f), randomNumber(0.0f, 0.5f)),
+			glm::vec3(randomNumber(0.0f, 0.3f), randomNumber(0.0f, 0.3f), randomNumber(0.0f, 0.3f)),
+			randomNumber(0.0f, 0.3f),
+			1.0f
+		};
 		lastRegisteredTime = glfwGetTime();
 		dist = 0.0f;
 		_state = PASG_BOARDING;

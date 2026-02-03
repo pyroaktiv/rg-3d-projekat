@@ -71,27 +71,133 @@ void drawPassengers() {
 	glm::vec3(0.5f, 0.5f, 0.5f),
 	};
 
+	g_shader_phong.use();
+	g_shader_phong.setBool("uUseTex", false);
+	g_shader_phong.setLight("uLight", light);
+	g_shader_phong.setVec3("uViewPos", Bus::CAMERA_POS);
+
+	
+
 	for (auto p : g_bunch.boardingPassengers) {
 		glm::mat4 model = glm::mat4(1.0f);
 
-		model = glm::translate(model, p->pos);
-		model = glm::scale(model, glm::vec3(0.5f, p->scaleY, 0.5f));
-		model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
+		if (p->isControl) {
+			model = glm::translate(model, p->pos);
+			model = glm::scale(model, glm::vec3(0.01f, 0.01f * p->scaleY, 0.01f));
 
-		drawPlainCube(model, busStationMaterial, light, Bus::CAMERA_POS);
+			if (p->orientation == DIR_NEG_X) {
+				model = glm::rotate(model, -glm::pi<float>() / 2, glm::vec3(0.0f, 1.0f, 0.0f));
+			}
+
+			model = glm::rotate(model, -glm::pi<float>() / 2, glm::vec3(1.0f, 0.0f, 0.0f));
+		}
+		else {
+			model = glm::translate(model, p->pos);
+			model = glm::scale(model, glm::vec3(0.5f, 0.5 * p->scaleY, 0.5f));
+			model = glm::translate(model, glm::vec3(0.0f, 1.5f, 0.0f));
+
+			if (p->orientation == DIR_NEG_X) {
+				model = glm::rotate(model, -glm::pi<float>() / 2, glm::vec3(0.0f, 1.0f, 0.0f));
+			}
+		}
+
+		glm::mat3 M_Tinv = glm::mat3(glm::transpose(glm::inverse(model)));
+		glm::mat4 VP = g_camera.getProjectionMatrix() * g_camera.getViewMatrix();
+
+		g_shader_phong.setMat3("uM_Tinv", M_Tinv);
+		g_shader_phong.setMat4("uM", model);
+		g_shader_phong.setMat4("uVP", VP);
+		g_shader_phong.setMaterial("uMaterial", p->material);
+
+		if (p->isControl) {
+			g_model_control.Draw(g_shader_phong);
+		}
+		else {
+			g_model_passenger.Draw(g_shader_phong);
+		}
 	}
 
 	for (auto p : g_bunch.disembarkingPassengers) {
 		glm::mat4 model = glm::mat4(1.0f);
 
-		model = glm::translate(model, p->pos);
-		model = glm::scale(model, glm::vec3(0.5f, p->scaleY, 0.5f));
-		model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
+		if (p->isControl) {
+			model = glm::translate(model, p->pos);
+			model = glm::scale(model, glm::vec3(0.01f, 0.01f * p->scaleY, 0.01f));
 
-		drawPlainCube(model, busStationMaterial, light, Bus::CAMERA_POS);
+			if (p->orientation == DIR_POS_X) {
+				model = glm::rotate(model, glm::pi<float>() / 2, glm::vec3(0.0f, 1.0f, 0.0f));
+			}
+			else {
+				model = glm::rotate(model, glm::pi<float>(), glm::vec3(0.0f, 1.0f, 0.0f));
+			}
+			model = glm::rotate(model, -glm::pi<float>() / 2, glm::vec3(1.0f, 0.0f, 0.0f));
+		}
+		else {
+			model = glm::translate(model, p->pos);
+			model = glm::scale(model, glm::vec3(0.5f, 0.5 * p->scaleY, 0.5f));
+			model = glm::translate(model, glm::vec3(0.0f, 1.5f, 0.0f));
+
+			if (p->orientation == DIR_POS_X) {
+				model = glm::rotate(model, glm::pi<float>() / 2, glm::vec3(0.0f, 1.0f, 0.0f));
+			}
+			else {
+				model = glm::rotate(model, glm::pi<float>(), glm::vec3(0.0f, 1.0f, 0.0f));
+			}
+		}
+
+		glm::mat3 M_Tinv = glm::mat3(glm::transpose(glm::inverse(model)));
+
+		glm::mat4 VP = g_camera.getProjectionMatrix() * g_camera.getViewMatrix();
+
+		g_shader_phong.setMat3("uM_Tinv", M_Tinv);
+		g_shader_phong.setMat4("uM", model);
+		g_shader_phong.setMat4("uVP", VP);
+		g_shader_phong.setMaterial("uMaterial", p->material);
+
+		if (p->isControl) {
+			g_model_control.Draw(g_shader_phong);
+		}
+		else {
+			g_model_passenger.Draw(g_shader_phong);
+		}
 	}
 }
 
+void drawSteeringWheel() {
+	glm::mat4 model = glm::mat4(1.0f);
+
+	struct Light light = {
+	Bus::CAMERA_POS,
+	glm::vec3(0.7f, 0.7f, 0.7f),
+	glm::vec3(0.7f, 0.7f, 0.7f),
+	glm::vec3(0.5f, 0.5f, 0.5f),
+	};
+
+	g_shader_phong.use();
+	g_shader_phong.setBool("uUseTex", false);
+	g_shader_phong.setLight("uLight", light);
+	g_shader_phong.setVec3("uViewPos", Bus::CAMERA_POS);
+
+	model = glm::translate(model, glm::vec3(Bus::CAMERA_POS.x, Bus::FLOOR_HEIGHT + 0.7f, -Bus::REAR_AXLE_TO_FRONT + 0.4f));
+	model = glm::rotate(model, glm::pi<float>() / 12, glm::vec3(1.0f, 0.0f, 0.0f));
+	model = glm::rotate(model, glm::pi<float>() - g_bus.steeringAngle * 8, glm::vec3(0.0f, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+
+	glm::mat3 M_Tinv = glm::mat3(glm::transpose(glm::inverse(model)));
+
+	glm::mat4 VP = g_camera.getProjectionMatrix() * g_camera.getViewMatrix();
+
+	g_shader_phong.setMat3("uM_Tinv", M_Tinv);
+	g_shader_phong.setMat4("uM", model);
+	g_shader_phong.setMat4("uVP", VP);
+	g_shader_phong.setMaterial("uMaterial", Material{ glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.3f, 0.3f, 0.3f), 10.0f, 1.0f });
+
+	g_model_steering_wheel.Draw(g_shader_phong);
+}
+
+void drawDogtags() {
+
+}
 
 void drawControlBoard() {
 	struct Light light = {

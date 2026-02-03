@@ -21,3 +21,5 @@ void setupMouselook();
 void setupTextures();
 
 void setupShaders();
+
+void setupModels();

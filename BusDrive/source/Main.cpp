@@ -43,6 +43,7 @@ int main()
     setupMatrices();
     setupShaders();
     setupTextures();
+    setupModels();
 
 
     while (!glfwWindowShouldClose(g_window))
@@ -57,6 +58,7 @@ int main()
         drawBus();
         drawPassengers();
         drawControlBoard();
+        drawSteeringWheel();
 
         glfwSwapBuffers(g_window);
         glfwPollEvents();

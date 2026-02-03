@@ -35,6 +35,7 @@ public:
 		disembarkingPassengers = {};
 
 		_control = std::make_shared<Passenger>();
+		_control->isControl = true;
 	}
 
 	const bool& isControlInside{ _isControlInside };
