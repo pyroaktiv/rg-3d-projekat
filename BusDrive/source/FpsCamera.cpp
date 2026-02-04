@@ -60,11 +60,13 @@ FpsCamera::getProjectionMatrix() const {
 void
 FpsCamera::setOrtho() {
 	projection = glm::ortho(ORTHO_LEFT, ORTHO_RIGHT, ORTHO_BOTTOM, ORTHO_TOP, ORTHO_NEAR, ORTHO_FAR);
+	_isOrtho = true;
 }
 
 void
 FpsCamera::setPersp() {
 	projection = glm::perspective(PERSP_FOV, screenHeight / screenWidth, PERSP_NEAR, PERSP_FAR);
+	_isOrtho = false;
 }
 
 void

@@ -20,16 +20,18 @@ private:
 
 	void updateDirection();
 
+	bool _isOrtho{ true };
+
 public:
 
 	static constexpr float PERSP_FOV{ glm::radians(60.0f) };
 	static constexpr float PERSP_NEAR{ 0.1f };
 	static constexpr float PERSP_FAR{ 200.0f };
 
-	static constexpr float ORTHO_LEFT{ -1.0f };
-	static constexpr float ORTHO_RIGHT{ 1.0f };
-	static constexpr float ORTHO_BOTTOM{ -1.0f };
-	static constexpr float ORTHO_TOP{ 1.0f };
+	static constexpr float ORTHO_LEFT{ -10.0f };
+	static constexpr float ORTHO_RIGHT{ 10.0f };
+	static constexpr float ORTHO_BOTTOM{ -10.0f };
+	static constexpr float ORTHO_TOP{ 10.0f };
 	static constexpr float ORTHO_NEAR{ 0.1f };
 	static constexpr float ORTHO_FAR{ 200.0f };
 
@@ -44,6 +46,8 @@ public:
 	glm::vec3 pos{ {},{},{} };
 
 	static constexpr glm::vec3 UP{ glm::vec3(0.0f, 1.0f, 0.0f) };
+
+	const bool& isOrtho{ _isOrtho };
 
 	float getYaw() const;
 	float getPitch() const;

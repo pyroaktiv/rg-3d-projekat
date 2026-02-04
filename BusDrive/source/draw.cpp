@@ -8,6 +8,7 @@
 #include "../include/matrices/road_matrices.h"
 #include "../include/matrices/control_board_matrices.h"
 #include "../include/materials.h"
+#include "../include/FpsCamera.h"
 
 void drawRoad() {
 
@@ -196,7 +197,32 @@ void drawSteeringWheel() {
 }
 
 void drawDogtags() {
+	bool wasDepthTested = glIsEnabled(GL_DEPTH_TEST);
+	glDisable(GL_DEPTH_TEST);
 
+	glm::mat4 proj = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f);
+
+	glm::mat4 view = glm::mat4(1.0f);
+	view = glm::rotate(view, glm::pi<float>() / 2, glm::vec3(0.0f, 1.0f, 0.0f));
+	view = glm::rotate(view, glm::pi<float>() / 2, glm::vec3(0.0f, 0.0f, 1.0f));
+
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(-0.95f, -0.01f, -0.95f));
+	model = glm::scale(model, glm::vec3(0.2f, 1.0f, 0.2f));
+
+	g_shader_basic.use();
+	g_shader_basic.setMat4("uMVP", proj * view * model);
+		
+	glBindVertexArray(vao_quad);
+
+	g_tex_dogtags.bind(0);
+	g_shader_basic.setInt("uTex", 0);
+
+	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+
+	glBindVertexArray(0);
+
+	if (wasDepthTested) glEnable(GL_DEPTH_TEST);
 }
 
 void drawControlBoard() {

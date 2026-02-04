@@ -45,6 +45,9 @@ int main()
     setupTextures();
     setupModels();
 
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+
 
     while (!glfwWindowShouldClose(g_window))
     {
@@ -59,6 +62,8 @@ int main()
         drawPassengers();
         drawControlBoard();
         drawSteeringWheel();
+
+        drawDogtags();
 
         glfwSwapBuffers(g_window);
         glfwPollEvents();
